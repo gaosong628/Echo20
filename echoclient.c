@@ -9,7 +9,7 @@
 #include <netdb.h>
 #include <netinet/in.h>
 
-// A buffer large enough to contain the longest allowed string 
+
 #define BUFSIZE 256
 
 
@@ -46,7 +46,7 @@ int  main(int argc, char **argv)
   addr.sin_addr.s_addr = Hostaddress;/* internet address*/
 
   connect(sock, (struct sockaddr*)&addr, sizeof(addr));
-  //printf("Connected to the server.\n");
+  printf("Connected to the server.\n");
  while(1)
  {
    bzero(buffer,BUFSIZE);
@@ -68,7 +68,7 @@ int  main(int argc, char **argv)
     bzero(buffer,BUFSIZE);
    /*receive message from the server*/
     recv(sock,buffer,sizeof(buffer),0);
-    printf("%s\n",buffer);
+    printf("Message: %s\n",buffer);
         
     }
     close(sock); /*close the socket*/
