@@ -1,14 +1,11 @@
-CC=gcc
-CFALGS= -c -Wall
-OBJ=func
-echoall: $(OBJ)
-$(OBJ): echoserver.o echoclient.o
-  $(CC) echoserver.o echoclient.o -o $(OBJ)
-echoserver.o: echoserver.c
-  $(CC) $(CFLAGS) echoserver.c
-echoclient.o: echoclient.c
-  $(CC) $(CFLAGS) echoclient.c
-exec:
-  ./func
+target=tt
+src=$(wildcard *.c)
+ds=$(wildcard *.h)
+obj=$(patsubst %.c,%.o,$(src))
+$(target):$(obj)
+  gcc $^ -o $@ -Wall
+%.o:%.c $(ds)
+  gcc -c $< -o $@ -Wall
+.PHONY:clean
 clean:
-  rm -fr *.o echoclient echoserver
+  rm -rf $(target) $(obj)
