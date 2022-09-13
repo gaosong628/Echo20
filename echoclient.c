@@ -50,10 +50,11 @@ int  main(int argc, char **argv)
  while(1)
  {
    bzero(buffer,BUFSIZE);
+   fgets(buffer,sizeof(buffer),stdin);
   /* if (n>1) 
    { 
     //printf("Please type in Message sending to Server: ");
-    fgets(buffer,sizeof(buffer),stdin);
+  
      
      if (strlen(buffer)==1 || strlen(buffer)>16)
      {printf("Input message error \n");
