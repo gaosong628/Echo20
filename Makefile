@@ -1,4 +1,4 @@
-target=tt
+target=main
 src=$(wildcard *.c)
 ds=$(wildcard *.h)
 obj=$(patsubst %.c,%.o,$(src))
