@@ -68,7 +68,7 @@ int  main(int argc, char **argv)
     bzero(buffer,BUFSIZE);
    /*receive message from the server*/
     recv(sock,buffer,sizeof(buffer),0);
-    printf("Message: %s\n",buffer);
+    printf("%s\n",buffer);
         
     }
     close(sock); /*close the socket*/
