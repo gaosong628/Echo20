@@ -1,11 +1,13 @@
-target=main
+t1=echoserver
+t2=echoclient
 src=$(wildcard *.c)
-ds=$(wildcard *.h)
+deps=$(wildcard *.h)
 obj=$(patsubst %.c,%.o,$(src))
-$(target):$(obj)
+all:$(t1) $(t2)
+$(t1):server.o wrap.o
   gcc $^ -o $@ -Wall
-%.o:%.c $(ds)
-  gcc -c $< -o $@ -Wall
+$(t2):client.o wrap.o
+  gcc $^ -o $@ -Wall  
 .PHONY:clean
 clean:
-  rm -rf $(target) $(obj)
+  -rm -rf $(t1) $(T2) $(obj)
