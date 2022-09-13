@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
   //printf("[+]Bind to the port number: %d\n", portno);
   
   /*make sure server is ready to listen*/
-  //listen(server_sock, 5);
+  listen(server_sock, 5);
   //printf("Listening...\n");
   
   while(1)
@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
       exit(1);
      }
 
-      printf("Message Received from Client: %s\n",buffer);
+      //printf("Message Received from Client: %s\n",buffer);
       /*send the same message back to the client*/
       send(client_sock,buffer,strlen(buffer),0);
     }
